@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Config Management in Drupal 8</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/solarized.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,8 +24,109 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Config Management</h1>
+					<h2>in D8</h2>
+					<h6 style="font-size: .5em;">Your Slow Slide Into Insanity Made Easy!!</h4>
+				</section>
+
+				<section>
+					<h2 style="text-transform: none;font-variant: small-caps;">Assumptions</h2>
+					<ol>
+						<li>Drupal 8</li>
+						<li>Vanilla config</li>
+						<li><span style="font-variant: small-caps;"><strong>Not</strong></span> working directly on <code>dev</code>/<code>master</code> branches</li>
+						<li>Familiarity with <code>git</code></li>
+					</ol>
+
+					<aside class="notes">
+						<ol>
+							<li>Will this workflow work in D9? Who knows!</li>
+							<li>No additional modules like config-ignore.</li>
+							<li><small>Please don't make me explain why.</small></li>
+							<li>Command line/sourcetree, demo being on commandline</li>
+						</ol>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Basic Workflow</h2>
+					<ol>
+						<li>Pull down the DB</li>
+						<li>Pull down your master branch</li>
+						<li>Run <code>drush cim</code></li>
+						<li><em>~make your changes~</em></li>
+						<li>Run <code>drush cex</code></li>
+						<li><em>~commit <span style="font-variant: small-caps;"><strong>only</strong></span> your changes~</em></li>
+						<li>Merge changes into your master branch</li>
+						<li>Push your master branch back to the remote</li>
+					</ol>
+
+					<aside class="notes">
+						Long, but not complicated. Except for step 4.
+					</aside>
+				</section>
+
+				<section>
+					<h2>1. Pull down DB</h2>
+					<ul>
+						<li>Doesn't matter if no remote DBs.</li>
+						<li>Guideline, not rule.</li>
+						<li>Do it at regular intervals.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>2. Pull down master</h2>
+					<h2>3. Run <code>drush cim</code></h2>
+					<ul>
+						<li>Master is your current blesséd branch.</li>
+						<li>These two should always be done before you start new work.</li>
+					</ul>
+
+					<aside class="notes">
+						<ul>
+							<li>Regardless of what it's actually called. Ours happens to be "dev".</li>
+							<li>New ticket, new branch, whatever. Run these first.</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<h2>4. ~make your changes~</h2>
+					<img src="/images/binary.gif">
+				</section>
+
+				<section>
+					<h2>5. Run <code>drush cex</code></h2>
+					<ul>
+						<li>Okay, so you're done, now what?</li>
+						<li>Exports any change not stored in the config directory.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>6. ~commit <span style="font-variant: small-caps;"><strong>only</strong></span> your changes~</h2>
+					<ul>
+						<li>The most important step.</li>
+						<li>Seriously, I can not possible stress how important this is.</li>
+						<li>I M P O R T A N T</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>7. Merge changes into your master branch</h2>
+					<h2>8. Push your master branch back to the remote</h2>
+					<ul>
+						<li>Cool, you're done.</li>
+					</ul>
+				</section>
+
+
+
+
+
+
 			</div>
 		</div>
 
